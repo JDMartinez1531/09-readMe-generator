@@ -17,20 +17,23 @@ const questions = [
 		message: "project description:"
     },
     {
-        name: "label",
+        
         type: "input",
+        name: "label",
         message: "Badge - Badge Label: ",
         default: "<LABEL>",
       },
       {
-        name: "message",
+        
         type: "input",
+        name: "message",
         message: "Badge - Badge Message: ",
         default: "<MESSAGE>",
       },
       {
-        name: "color",
+        
         type: "input",
+        name: "color",
         message: "Badge - Badge Color: ",
         default: "<COLOR>",
       },
@@ -62,7 +65,7 @@ const questions = [
         ]},
         {
             type: "editor",
-            name: "contributing",
+            name: "contribute",
             message: "contributing instructions:",
            
         },
