@@ -34,7 +34,7 @@ ${data.contribute}
 
 ## License
 
-This projet is licensed under the terms of ${data.license}
+This projet is licensed under the terms of ${data.license} license.
 
 ---
 
@@ -43,6 +43,11 @@ This projet is licensed under the terms of ${data.license}
 ${data.tests}
 
 ---
+
+## Questions
+
+If you have any questions about this repo,
+open an issue or contact ${data.contact_email}
 
 
 `;

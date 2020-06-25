@@ -65,7 +65,7 @@ const questions = [
         ]},
         {
             type: "editor",
-            name: "contributing",
+            name: "contribute",
             message: "contributing instructions:",
            
         },
