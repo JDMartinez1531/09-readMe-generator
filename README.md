@@ -13,7 +13,7 @@ This is a node.js project that processes user input to generate a readMe.md file
 ​
 * [Usage](#usage)
 ​
-* [Contributors](#contributors)
+* [Contribute](#contribute)
 ​
 * [Tests](#tests)
 ​
@@ -39,12 +39,14 @@ npm i
 ---
 
   
-## Contributors
+## Contribute
 
 
 ---
 ​
-​
+## License
+
+---
 
 ## Tests
 ​
