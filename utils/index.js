@@ -5,6 +5,7 @@ var github = require("octonode");
 const userPrompts = require("./prompts")
 const generateMkdown = require("./generateMarkdown");
 const prompts = require("./prompts");
+const repoData = {repoName: "", description: ""}
 
 // prompt file write location
 let init = async function() { 
@@ -34,6 +35,9 @@ const { username, password } = await inquirer.prompt([{
       });
 getAuthentication(client)
 }
+else {
+    sectionPrompts();
+}
 }
 catch (err) {
     console.log(err);
@@ -46,11 +50,36 @@ function getAuthentication(client) {
     if (!err) {
       authenticated = true;
       console.log("authenticated");
-    //   newRepoPrompts();
+        makeNewRepo()
     } else {
       authenticated = false;
       console.log("Invalid credentials");
     }
   });
 }
+
+function makeNewRepo() {
+    inquirer
+      .prompt([
+        {
+          name: "reponame",
+          type: "input",
+          message: "Repo name: ",
+          default: "Enter Repo Name Here",
+        },
+        {
+          name: "description",
+          type: "input",
+          message: "Description: ",
+          default: "Enter Description Here",
+        },
+      ])
+      .then((answers) => {
+        repoData.reponame = answers.reponame;
+        repoData.description = answers.description;
+  
+        sectionPrompts();
+      });
+  }
+
 init();
