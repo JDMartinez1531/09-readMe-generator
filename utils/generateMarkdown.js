@@ -32,6 +32,18 @@ ${data.contribute}
 
 ---
 
+## License
+
+This projet is licensed under the terms of ${data.license}
+
+---
+
+## Tests
+
+${data.tests}
+
+---
+
 
 `;
 }
