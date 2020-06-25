@@ -20,6 +20,19 @@ ${data.installation}
 
 ---
 
+## Usage
+
+${data.usage}
+
+---
+
+## Contribute
+
+${data.contribute}
+
+---
+
+
 `;
 }
 
