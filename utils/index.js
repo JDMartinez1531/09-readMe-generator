@@ -2,9 +2,8 @@ const fs = require("fs");
 const util = require("util");
 const inquirer = require("inquirer");
 var github = require("octonode");
-const userPrompts = require("./prompts")
+const sectionPrompts = require("./prompts")
 const generateMkdown = require("./generateMarkdown");
-const prompts = require("./prompts");
 const repoData = {repoName: "", description: ""}
 
 // prompt file write location
