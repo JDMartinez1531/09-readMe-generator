@@ -1,7 +1,9 @@
 function generateMarkdown(data) {
   return `
 # ${data.title}
+
 <img src="https://img.shields.io/badge/${data.label}-${data.message}-${data.color}" alt="${data.label}" />
+
 ## ${data.description}
 ---
 ## Table of Contents
