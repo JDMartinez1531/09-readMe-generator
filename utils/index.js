@@ -53,7 +53,7 @@ function getAuthentication(client) {
     if (!err) {
       authenticated = true;
       console.log("authenticated");
-        makeNewRepo()
+      getRepoData()
     } else {
       authenticated = false;
       console.log("Invalid credentials");
@@ -61,7 +61,7 @@ function getAuthentication(client) {
   });
 }
 
-function makeNewRepo() {
+function getRepoData() {
     inquirer
       .prompt([
         {
@@ -80,10 +80,49 @@ function makeNewRepo() {
       .then((answers) => {
         repoData.reponame = answers.reponame;
         repoData.description = answers.description;
+        repoData.makeNewRepo = true;
   
         sectionPrompts();
       });
   }
+
+function makeNewRepo(mkDown) {
+  let ghme = client.me();
+
+  ghme.repo(
+    {
+      name: repoData.reponame,
+      description: repoData.description,
+    },
+    (err, data, headers) => {
+      if (err) {
+        console.log("there was an problem creating your repository");
+      } else {
+        console.log(`The repository <${repoData.reponame}> has been created successfully`);
+
+        var ghrepo = client.repo(
+          `${client.token.username}/${repoData.reponame}`
+        );
+        ghrepo.createContents(
+          "README.md",
+          "initial creation of readme",
+          mkDown,
+          (err, data, headers) => {
+            if (err) {
+              console.log(
+                `There was an error commiting your REAME.md to the REPO: <${repoData.reponame}>`
+              );
+            } else {
+              console.log(
+                `README successfully commited to REPO: <${repoData.reponame}>`
+              );
+            }
+          }
+        );
+      }
+    }
+  )
+}
 
   async function init() 
   {
@@ -94,6 +133,9 @@ function makeNewRepo() {
     const answers = await sectionPrompts();
     const mkDown = await generateMkdown(answers);
     await writeFile ("README.md", mkDown)
+    if (repoData.makeNewRepo === "true") {
+      makeNewRepo(mkDown);
+    }
       console.log("Success!")
         }
     catch (err) {
