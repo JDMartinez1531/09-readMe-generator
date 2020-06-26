@@ -44,7 +44,7 @@ const questions = [
     },
     {
         type: "editor",
-		name: "usage",
+		    name: "usage",
         message: "instructions for use:",
 
     },

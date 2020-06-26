@@ -6,27 +6,30 @@ const sectionPrompts = require("./prompts")
 const generateMkdown = require("./generateMarkdown");
 const repoData = {repoName: "", description: ""}
 
+const writeFile = util.promisify(fs.writeFile);
+
 // prompt file write location
-let init = async function() { 
+let start = async function() 
+{ 
       try {
-    const { location } = await inquirer.prompt([
-{
-    name: "location",
-    type: "list",
-    message: "Where would you like to write your README.md",
-    choices: ["Create new Github repository", "Local"],
+      const { location } = await inquirer.prompt([
+  {
+      name: "location",
+      type: "list",
+      message: "Where would you like to write your README.md",
+      choices: ["Create new Github repository", "Local"],
  }
-]);
-if (location === "Create new Github repository") {
-const { username, password } = await inquirer.prompt([{
-    name: "username",
-    message: "Github Username: ",
-    type: "input",
+  ]);
+      if (location === "Create new Github repository") {
+      const { username, password } = await inquirer.prompt([{
+      name: "username",
+      message: "Github Username: ",
+      type: "input",
   },
   {
-    name: "password",
-    message: "Github Password: ",
-    type: "password",
+      name: "password",
+      message: "Github Password: ",
+      type: "password",
   }])
      var client = github.client({
         username: username,
@@ -38,9 +41,10 @@ else {
     sectionPrompts();
 }
 }
-catch (err) {
-    console.log(err);
-  }
+  catch (err) 
+    {
+      console.log(err);
+    }
 }
 
 // get github authentication
@@ -81,4 +85,20 @@ function makeNewRepo() {
       });
   }
 
-init();
+  async function init() 
+  {
+    
+
+    try {
+    await start();
+    const answers = await sectionPrompts();
+    const mkDown = await generateMkdown(answers);
+    await writeFile ("README.md", mkDown)
+      console.log("Success!")
+        }
+    catch (err) {
+      console.log("There was an error writting your file." + err)
+    }
+  }
+
+  init()
