@@ -1,3 +1,4 @@
+
 # 09 ReadMe Generator
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jdmartinez1531/09-readMe-generator)
 ​
@@ -28,13 +29,17 @@ This is a node.js project that processes user input to generate a readMe.md file
 To install necessary dependencies, run the following command:
 ​
 ```
-npm i
+step 1: clone https://github.com/JDMartinez1531/09-readMe-generator.git
+step 2: install node https://nodejs.org/en/download/
+step 3: npm install
+step 4: node index.js
 ```
 
 ---
 ​
 ## Usage
 
+Complete all inputs to generate readme.md file.
 
 ---
 
@@ -44,17 +49,11 @@ npm i
 
 ---
 ​
-## License
-
----
 
 ## Tests
 ​
-To run tests, run the following command:
+No tests have been wrtten at this time.
 ​
-```
-npm test
-```
 
 ---
 ​
