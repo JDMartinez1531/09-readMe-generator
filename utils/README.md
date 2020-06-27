@@ -1,7 +1,9 @@
 
-# undefined
-<img src="https://img.shields.io/badge/undefined-undefined-undefined" alt="undefined" />
-## undefined
+# Awesome Project
+
+<img src="https://img.shields.io/badge/License-MIT-green" alt="License" />
+
+## A description of an awesome project
 ---
 ## Table of Contents
 - [Installation](#installation)
@@ -15,37 +17,38 @@
 
 ## Installation
 ​
-undefined
+Some installation instructions
 
 ---
 
 ## Usage
 
-undefined
+some usage instructions
+
 
 ---
 
 ## Contribute
 
-undefined
+contribute!
 
 ---
 
 ## License
 
-This projet is licensed under the terms of undefined license.
+This projet is licensed under the terms of MIT license.
 
 ---
 
 ## Tests
 
-undefined
+here are them tests yo
 
 ---
 
 ## Questions
 
 If you have any questions about this repo,
-open an issue or contact undefined
+open an issue or contact jdmartinez@something.com
 
 

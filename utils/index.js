@@ -37,9 +37,7 @@ let start = async function()
       });
 getAuthentication(client)
 }
-else {
-    sectionPrompts();
-}
+
 }
   catch (err) 
     {
@@ -52,7 +50,6 @@ function getAuthentication(client) {
   client.get("/user", {}, function (err, status, body, headers) {
     if (!err) {
       authenticated = true;
-      console.log("authenticated");
       getRepoData()
     } else {
       authenticated = false;
@@ -82,11 +79,10 @@ function getRepoData() {
         repoData.description = answers.description;
         repoData.makeNewRepo = true;
   
-        sectionPrompts();
       });
   }
 
-function makeNewRepo(mkDown) {
+async function makeNewRepo(mkDown, client) {
   let ghme = client.me();
 
   ghme.repo(
@@ -132,10 +128,11 @@ function makeNewRepo(mkDown) {
     await start();
     const answers = await sectionPrompts();
     const mkDown = await generateMkdown(answers);
-    await writeFile ("README.md", mkDown)
+    await writeFile ("README.md", mkDown);
     if (repoData.makeNewRepo === "true") {
-      makeNewRepo(mkDown);
+      makeNewRepo(mkDown, client);
     }
+    
       console.log("Success!")
         }
     catch (err) {
